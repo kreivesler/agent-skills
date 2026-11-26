@@ -1,6 +1,6 @@
 # Agent Skills
 
-> Modular, project-agnostic AI agent skills decoupled by use case—covering software engineering, UI/SEO, documentation, CI/CD, packaging, and B2B workflows.
+> Modular, project-agnostic AI agent skills decoupled by use case, covering software engineering, UI/SEO, documentation, CI/CD, packaging, and B2B workflows.
 
 ---
 
@@ -8,9 +8,9 @@
 
 Monolithic `AGENTS.md` files mix universal engineering standards with project-specific secrets, brand copy, and domain rules. This repository separates **reusable workflows** into standalone `SKILL.md` skills (Markdown with YAML frontmatter) so any compatible AI agent or project can:
 
-- **Reuse rules by reference** without copying or maintaining duplicate files across repositories.
+- **Reuse rules by reference** via symlinks without copying or maintaining duplicate files across repositories.
 - **Keep context lean** through progressive disclosure (only skill names and descriptions load upfront; full instructions load on demand).
-- **Opt in selectively** per repository using `.agents/skills.json` with `include_only`, while keeping brand identity, architecture maps, and `.env` credentials strictly inside each project.
+- **Opt in selectively** per repository by linking only the needed skills, while keeping brand identity, architecture maps, and `.env` credentials strictly inside each project.
 
 ---
 
@@ -53,21 +53,9 @@ Monolithic `AGENTS.md` files mix universal engineering standards with project-sp
 git clone https://github.com/kreivesler/agent-skills.git
 ```
 
-2. In any project, create `.agents/skills.json` pointing to the cloned folder and listing only the skills that apply:
-
-```json
-{
-  "entries": [
-    {
-      "path": "/path/to/agent-skills",
-      "include_only": [
-        "clean-code-engineering",
-        "git-github-workflow",
-        "readme-and-changelog"
-      ]
-    }
-  ]
-}
-```
+2. Inside your project's `.agents/skills/` folder, add symbolic links pointing to only the skill folders your project needs, for example:
+   - `.agents/skills/clean-code-engineering` pointing to `/path/to/agent-skills/clean-code-engineering`
+   - `.agents/skills/git-github-workflow` pointing to `/path/to/agent-skills/git-github-workflow`
+   *(If a project needs every skill, `.agents/skills` itself can be a single symlink pointing directly to `/path/to/agent-skills`.)*
 
 3. Keep project-specific data (organization details, repository layout, error codes, and `.env` credentials) exclusively in each project's own `AGENTS.md` and `.env`.
