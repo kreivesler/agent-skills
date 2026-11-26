@@ -6,7 +6,7 @@
 
 ## Why Decouple Rules into Skills?
 
-Monolithic `AGENTS.md` files mix universal engineering standards with project-specific secrets, brand copy, and domain rules. This repository separates **reusable workflows** into standalone skills so any project can:
+Monolithic `AGENTS.md` files mix universal engineering standards with project-specific secrets, brand copy, and domain rules. This repository separates **reusable workflows** into standalone `SKILL.md` skills (Markdown with YAML frontmatter) so any compatible AI agent or project can:
 
 - **Reuse rules by reference** without copying or maintaining duplicate files across repositories.
 - **Keep context lean** through progressive disclosure (only skill names and descriptions load upfront; full instructions load on demand).
