@@ -53,9 +53,6 @@ Monolithic `AGENTS.md` files mix universal engineering standards with project-sp
 git clone https://github.com/kreivesler/agent-skills.git
 ```
 
-2. Inside your project's `.agents/skills/` folder, add symbolic links pointing to only the skill folders your project needs, for example:
-   - `.agents/skills/clean-code-engineering` pointing to `/path/to/agent-skills/clean-code-engineering`
-   - `.agents/skills/git-github-workflow` pointing to `/path/to/agent-skills/git-github-workflow`
-   *(If a project needs every skill, `.agents/skills` itself can be a single symlink pointing directly to `/path/to/agent-skills`.)*
+2. Point your AI agent's global skills directory (or a workspace skills folder) via a symbolic link to your cloned `agent-skills` directory, for example `~/.agent/config/skills/` or `.agent/skills/`, linking either the whole folder or only the skills you need.
 
 3. Keep project-specific data (organization details, repository layout, error codes, and `.env` credentials) exclusively in each project's own `AGENTS.md` and `.env`.
